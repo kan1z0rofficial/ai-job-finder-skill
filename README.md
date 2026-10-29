@@ -19,11 +19,11 @@
 ### Claude Code
 
 ```bash
-mkdir -p ~/.claude/skills/job-search
-cp SKILL.md ~/.claude/skills/job-search/
+mkdir -p ~/.claude/skills/ai-job-finder-skill
+cp SKILL.md ~/.claude/skills/ai-job-finder-skill/
 ```
 
-Или в проекте: `.claude/skills/job-search/SKILL.md`.
+Или в проекте: `.claude/skills/ai-job-finder-skill/SKILL.md`.
 
 ### Claude Projects (claude.ai)
 
@@ -32,8 +32,8 @@ cp SKILL.md ~/.claude/skills/job-search/
 ### OpenClaw
 
 ```bash
-mkdir -p ~/.openclaw/skills/job-search
-cp SKILL.md ~/.openclaw/skills/job-search/
+mkdir -p ~/.openclaw/skills/ai-job-finder-skill
+cp SKILL.md ~/.openclaw/skills/ai-job-finder-skill/
 ```
 
 Путь можно изменить в конфигурации (`skills.dir`).
@@ -63,7 +63,7 @@ cp SKILL.md ~/.openclaw/skills/job-search/
 ## 🗂️ Структура
 
 ```
-job-search-skill/
+ai-job-finder-skill/
 ├── SKILL.md    # сам скилл (инструкции для AI-агента)
 └── README.md   # этот файл
 ```
@@ -93,3 +93,5 @@ MIT — используйте свободно.
 ---
 
 *Сделано с ❤️ для тех, кто ищет работу.*
+
+
