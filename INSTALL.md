@@ -1,4 +1,4 @@
-# 📖 Руководство: установка и использование job-search-skill
+# 📖 Руководство: установка и использование ai-job-finder-skill
 
 ## Что делает этот скилл
 
@@ -35,8 +35,8 @@
 ### 1. Claude Code
 
 ```bash
-mkdir -p ~/.claude/skills/job-search
-cp SKILL.md ~/.claude/skills/job-search/
+mkdir -p ~/.claude/skills/ai-job-finder-skill
+cp SKILL.md ~/.claude/skills/ai-job-finder-skillh/
 ```
 
 Перезапустите Claude Code. Скилл активируется автоматически при запросах про поиск работы.
@@ -52,8 +52,8 @@ cp SKILL.md ~/.claude/skills/job-search/
 ### 3. OpenClaw
 
 ```bash
-mkdir -p ~/.openclaw/skills/job-search
-cp SKILL.md ~/.openclaw/skills/job-search/
+mkdir -p ~/.openclaw/skills/ai-job-finder-skill
+cp SKILL.md ~/.openclaw/skills/ai-job-finder-skill/
 ```
 
 Путь к скиллам можно изменить в конфиге агента (`skills.dir`).
