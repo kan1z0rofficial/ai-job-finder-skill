@@ -1,9 +1,9 @@
 ---
-name: job-search
+name: ai-job-finder-skill
 description: Поиск вакансий по параметрам — профессия, город, опыт, формат работы (офис/удалённо/вахта/смены). Используй, когда пользователь хочет найти работу или вакансии.
 ---
 
-# Скилл: Поиск работы (job-search)
+# Скилл: Поиск работы (ai-job-finder-skill)
 
 Универсальный скилл для AI-агентов (Claude, Codex, GPT, OpenClaw и совместимых).
 Активируй, когда пользователь просит найти работу, вакансии, хочет оценить рынок труда по своей профессии.
@@ -70,9 +70,9 @@ description: Поиск вакансий по параметрам — проф�
 
 ## 6. Установка в агентах (кратко)
 
-- **Claude Code:** скопируй `SKILL.md` в `~/.claude/skills/job-search/` (или `.claude/skills/job-search/` в проекте).
+- **Claude Code:** скопируй `SKILL.md` в `~/.claude/skills/ai-job-finder-skill/` (или `.claude/skills/ai-job-finder-skill/` в проекте).
 - **Claude Projects (claude.ai):** загрузи `SKILL.md` в Project knowledge.
-- **OpenClaw / OpenClaw-совместимые:** помести папку `job-search/` с `SKILL.md` в директорию скиллов агента (по умолчанию `~/.openclaw/skills/` или путь из конфигурации `skills.dir`).
+- **OpenClaw / OpenClaw-совместимые:** помести папку `ai-job-finder-skill/` с `SKILL.md` в директорию скиллов агента (по умолчанию `~/.openclaw/skills/` или путь из конфигурации `skills.dir`).
 - **Codex / GPT (ChatGPT):** вставь содержимое `SKILL.md` в системные инструкции — для Codex это `AGENTS.md` в корне проекта, для GPT — поле Instructions у Custom GPT.
 - **Kimi и другие агенты с поддержкой скиллов:** любая папка с `SKILL.md` в директории скиллов; агент без поддержки скиллов — просто вставь файл в системный промпт.
 
