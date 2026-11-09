@@ -36,7 +36,7 @@
 
 ```bash
 mkdir -p ~/.claude/skills/ai-job-finder-skill
-cp SKILL.md ~/.claude/skills/ai-job-finder-skillh/
+cp SKILL.md ~/.claude/skills/ai-job-finder-skill/
 ```
 
 Перезапустите Claude Code. Скилл активируется автоматически при запросах про поиск работы.
