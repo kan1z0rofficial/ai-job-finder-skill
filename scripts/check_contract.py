@@ -32,10 +32,13 @@ REQUIRED_FILES = [
     ".github/workflows/validate.yml",
     "evals/cases.json",
     "references/sources.md",
+    "references/output.md",
     "scripts/hh_url.py",
+    "scripts/format_results.py",
     "scripts/check_contract.py",
     "scripts/run_evals.py",
     "tests/test_hh_url.py",
+    "tests/test_format_results.py",
 ]
 
 SKILL_RULES = [
@@ -136,6 +139,8 @@ def main() -> int:
 
     check("ссылка на INSTALL.md", "INSTALL.md" in skill)
     check("нет ссылки на README.md как на инструкцию", "README.md репозитория" not in skill)
+    check("ссылка на схему вывода", "references/output.md" in skill)
+    check("упомянут format_results.py", "format_results.py" in skill)
 
     print("\nINSTALL.md")
     install = read("INSTALL.md")
@@ -152,6 +157,7 @@ def main() -> int:
     check("команда установки плагина", "ai-job-finder-skill@ai-job-finder" in readme)
     check("раздел ограничений", "ограничения" in readme_lower)
     check("описание структуры актуально", "references/sources.md" in readme and "CHANGELOG.md" in readme)
+    check("описан JSON/CSV", "references/output.md" in readme and "format_results.py" in readme)
 
     print("\nВнутренние ссылки")
     for relative in MARKDOWN_FILES:

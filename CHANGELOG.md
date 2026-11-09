@@ -2,6 +2,19 @@
 
 Формат: [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/), версии по [SemVer](https://semver.org/lang/ru/).
 
+## [1.1.0] — 2026-11-10
+
+### Добавлено
+
+- `references/output.md` — единая схема результата: поля запроса, вакансии, сводка, правила CSV.
+- `scripts/format_results.py` — конвертация JSON в CSV, Markdown или нормализованный JSON, пересчёт медианы.
+- `tests/test_format_results.py` — 13 тестов на медиану, форматирование, валидацию и CLI.
+- В `SKILL.md` добавлен режим машинного вывода: JSON/CSV по схеме, без выдуманных значений.
+
+### Изменено
+
+- README и README.en: раздел про JSON/CSV, обновлённая структура и roadmap.
+
 ## [1.0.0] — 2026-11-10
 
 Первая версия с репозиторной обвязкой.
