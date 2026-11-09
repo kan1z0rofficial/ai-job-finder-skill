@@ -16,6 +16,7 @@ Ask your agent *"find me welding jobs in Tyumen, fly-in rotation"* and get a tab
 - 📊 Fixed output: table + median salary + search date
 - 🧾 JSON and CSV export with a fixed schema
 - ⚙️ Optional hh.ru API search with a web-search fallback
+- 📈 Salary report: median, percentiles, breakdowns by city and experience
 - 🧠 Asks one clarifying question for missing parameters
 - 🔒 Refuses to invent vacancies, auto-apply, or collect personal data
 - 🌐 One file for all popular agents
@@ -64,6 +65,8 @@ The skill asks for missing details and returns up to 10 vacancies from hh.ru, Ra
 Need machine-readable output? Ask for JSON or CSV. The schema is in [references/output.md](references/output.md), and `scripts/format_results.py` converts a JSON file to CSV or Markdown.
 
 With a shell and an hh.ru app token, `scripts/hh_api.py` searches through the official API. Without a token the API may return `403`; the skill falls back to web search instead of bypassing the restriction.
+
+For a market report, `scripts/salary_report.py` computes the median, percentiles, and breakdowns by city, experience, and employer from a results file. Currencies are never mixed.
 
 ## ⚠️ Limitations
 

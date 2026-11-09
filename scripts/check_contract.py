@@ -36,11 +36,13 @@ REQUIRED_FILES = [
     "scripts/hh_url.py",
     "scripts/hh_api.py",
     "scripts/format_results.py",
+    "scripts/salary_report.py",
     "scripts/check_contract.py",
     "scripts/run_evals.py",
     "tests/test_hh_url.py",
     "tests/test_hh_api.py",
     "tests/test_format_results.py",
+    "tests/test_salary_report.py",
 ]
 
 SKILL_RULES = [
@@ -144,6 +146,7 @@ def main() -> int:
     check("ссылка на схему вывода", "references/output.md" in skill)
     check("упомянут format_results.py", "format_results.py" in skill)
     check("упомянут hh_api.py", "hh_api.py" in skill)
+    check("упомянут salary_report.py", "salary_report.py" in skill)
 
     print("\nINSTALL.md")
     install = read("INSTALL.md")
