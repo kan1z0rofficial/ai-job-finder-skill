@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Вопрос по установке
+    url: https://github.com/kan1z0rofficial/ai-job-finder-skill/blob/main/INSTALL.md
+    about: Инструкции для Claude Code, Claude Projects, OpenClaw, Codex, ChatGPT и Kimi
+  - name: Правила и приватность
+    url: https://github.com/kan1z0rofficial/ai-job-finder-skill/blob/main/SECURITY.md
+    about: Что скилл делает с данными и как сообщить об уязвимости

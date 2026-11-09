@@ -1,0 +1,24 @@
+{
+  "name": "ai-job-finder",
+  "description": "AI-скиллы для поиска работы",
+  "owner": {
+    "name": "k33",
+    "url": "https://github.com/kan1z0rofficial"
+  },
+  "plugins": [
+    {
+      "name": "ai-job-finder-skill",
+      "source": "./",
+      "version": "1.0.0",
+      "description": "Поиск вакансий по профессии, городу, опыту и формату работы",
+      "license": "MIT",
+      "keywords": [
+        "job-search",
+        "vacancies",
+        "hh",
+        "hr",
+        "russian"
+      ]
+    }
+  ]
+}

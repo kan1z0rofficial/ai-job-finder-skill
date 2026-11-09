@@ -1,101 +1,180 @@
-# 🎯 | ai-job-finder-skill
+# 🎯 ai-job-finder-skill
 
-Универсальный AI-скилл для поиска работы. Один файл `SKILL.md` — работает в Claude, Codex, GPT, OpenClaw, Kimi и любых LLM-агентах.
+[![Release](https://img.shields.io/github/v/release/kan1z0rofficial/ai-job-finder-skill?style=flat-square&label=release)](https://github.com/kan1z0rofficial/ai-job-finder-skill/releases)
+[![License](https://img.shields.io/github/license/kan1z0rofficial/ai-job-finder-skill?style=flat-square)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/kan1z0rofficial/ai-job-finder-skill?style=flat-square)](https://github.com/kan1z0rofficial/ai-job-finder-skill/stargazers)
+[![Validate](https://github.com/kan1z0rofficial/ai-job-finder-skill/actions/workflows/validate.yml/badge.svg)](https://github.com/kan1z0rofficial/ai-job-finder-skill/actions/workflows/validate.yml)
 
-![License](https://img.shields.io/badge/license-MIT-blue)
-![Platforms](https://img.shields.io/badge/platforms-Claude%20%7C%20GPT%20%7C%20Codex%20%7C%20OpenClaw-green)
+Универсальный AI-скилл для поиска работы. Один файл `SKILL.md` — без зависимостей, API-ключей и установки пакетов. Работает в Claude Code, Claude Projects, ChatGPT, Codex, OpenClaw, Kimi и любых агентах, которые читают инструкции.
 
-## ✨ | Что умеет
+Вы пишете агенту «ищу работу сварщиком в Тюмени, вахта» — получаете таблицу вакансий с зарплатами, опытом и источниками, а также медиану по выборке и дату поиска.
+
+## ✨ Что умеет
 
 - 🔍 **Поиск вакансий** по профессии, городу, опыту, формату работы и зарплате
 - 🏢 **Все форматы**: офис, удалёнка, гибрид, вахта, сменный график
-- 📊 **Структурированный результат**: таблица вакансий + медианная зарплата + дата поиска
+- 📊 **Структурированный результат**: таблица + медианная зарплата + дата поиска
 - 🧠 **Уточняющие вопросы**: собирает недостающие параметры одним сообщением
-- 🔒 **Безопасность**: не выдумывает вакансии, не отправляет данные без запроса
+- 🔒 **Безопасность**: не выдумывает вакансии, не откликается, не собирает персональные данные
 - 🌐 **Кросс-платформенность**: один файл для всех популярных агентов
 
-## 📦 | Установка
+## 🎬 Демо
 
-### Claude Code
+<!--
+  TODO: запишите 20–30-секундный GIF (запрос → уточнение → таблица),
+  положите его в docs/demo.gif и раскомментируйте строку ниже.
+  ![Демо](docs/demo.gif)
+-->
 
-```bash
-mkdir -p ~/.claude/skills/ai-job-finder-skill
-cp SKILL.md ~/.claude/skills/ai-job-finder-skill/
+Пока демо нет — быстрый сценарий проверки:
+
+1. Установите скилл (ниже).
+2. Напишите агенту: «Найди работу сварщиком в Тюмени».
+3. Агент задаст один уточняющий вопрос про формат и опыт.
+4. Ответьте — получите таблицу до 10 вакансий с источниками и медианой зарплат.
+
+## 📦 Установка
+
+### Claude Code — плагин (рекомендуется)
+
+```text
+/plugin marketplace add kan1z0rofficial/ai-job-finder-skill
+/plugin install ai-job-finder-skill@ai-job-finder
 ```
 
-Или в проекте: `.claude/skills/ai-job-finder-skill/SKILL.md`.
+После установки перезапустите сессию или выполните `/reload-plugins`.
 
-### Claude Projects (claude.ai)
+### Claude Code — вручную
 
-Загрузите `SKILL.md` в **Project knowledge** вашего проекта.
-
-### OpenClaw
+macOS / Linux:
 
 ```bash
-mkdir -p ~/.openclaw/skills/ai-job-finder-skill
-cp SKILL.md ~/.openclaw/skills/ai-job-finder-skill/
+mkdir -p ~/.claude/skills/ai-job-finder-skill && \
+curl -fsSL https://raw.githubusercontent.com/kan1z0rofficial/ai-job-finder-skill/main/SKILL.md \
+  -o ~/.claude/skills/ai-job-finder-skill/SKILL.md
 ```
 
-Путь можно изменить в конфигурации (`skills.dir`).
+Windows (PowerShell):
 
-### Codex
+```powershell
+$dir = "$env:USERPROFILE\.claude\skills\ai-job-finder-skill"
+New-Item -ItemType Directory -Force $dir | Out-Null
+Invoke-WebRequest -UseBasicParsing `
+  -Uri "https://raw.githubusercontent.com/kan1z0rofficial/ai-job-finder-skill/main/SKILL.md" `
+  -OutFile "$dir\SKILL.md"
+```
 
-Скопируйте содержимое `SKILL.md` в `AGENTS.md` в корне вашего проекта.
+### Остальные агенты
 
-### ChatGPT (Custom GPT)
+Claude Projects, ChatGPT, Codex, OpenClaw, Kimi — пошагово в [INSTALL.md](INSTALL.md).
 
-Создайте Custom GPT и вставьте содержимое `SKILL.md` в поле **Instructions**.
+## 🚀 Использование
 
-### Kimi / другие агенты
-
-Поместите `SKILL.md` в папку скиллов агента или просто добавьте в системный промпт.
-
-## 🚀 | Использование
-
-После установки просто напишите агенту:
+После установки пишите агенту обычными словами:
 
 > «Найди работу сварщиком в Тюмени, вахта, опыт 3 года»
 
 > «Python-разработчик, удалённо, от 200к»
 
-Скилл сам уточнит недостающие параметры и выдаст таблицу вакансий с источниками (hh.ru, Rabota.ru, SuperJob, Авито Работа).
+> «Ищу бухгалтера в Казани, офис, без опыта»
 
-## 🗂️ | Структура
+Скилл сам уточнит недостающие параметры и выдаст таблицу вакансий с источниками: hh.ru, Rabota.ru, SuperJob, Авито Работа.
 
+### Формат ответа
+
+```text
+| # | Должность | Компания | Зарплата | Опыт | Город / формат | Источник |
+|---|---|---|---|---|---|---|
+| 1 | …         | …        | …        | …    | …              | hh.ru    |
+
+Итог: найдено N вакансий, медиана — X ₽, дата поиска 2026-11-10.
+Совет: …
 ```
+
+Это шаблон: скилл заполняет его только реальными данными из найденных источников.
+
+## 🧩 Чем отличается от обычного вопроса к ChatGPT
+
+| Обычный запрос | Этот скилл |
+|---|---|
+| Формат ответа меняется от запуска к запуску | Фиксированные колонки, медиана и дата поиска |
+| Может придумать вакансию или ссылку | Явный запрет на выдуманные данные |
+| Легко соглашается «откликнуться за вас» | Отказывается совершать действия от имени пользователя |
+| Ничего не проверяется в CI | Контрактные тесты и evals в репозитории |
+
+## ⚠️ Ограничения
+
+- Нужен агент с доступом к веб-поиску или браузеру. Без него скилл выдаст только план поиска, а не вакансии.
+- hh.ru, Авито и другие площадки могут показывать капчу или отдавать неполную выдачу — это ограничение источника, а не скилла.
+- Зарплаты в вакансиях часто указаны «до вычета» и заполнены не полностью, поэтому медиана приблизительная.
+- Скилл **не** откликается на вакансии и **не** отправляет резюме — только ищет и показывает.
+- Проект не связан с hh.ru, Rabota.ru, SuperJob и Авито.
+
+## 🗂️ Структура
+
+```text
 ai-job-finder-skill/
-├── SKILL.md    # сам скилл (инструкции для AI-агента)
-└── README.md   # этот файл
+├── .claude-plugin/          # плагин и маркетплейс для Claude Code
+├── .github/                 # CI и шаблоны issue
+├── evals/cases.json         # поведенческие кейсы
+├── references/sources.md    # параметры URL и правила по источникам
+├── scripts/
+│   ├── check_contract.py    # статическая проверка репозитория
+│   ├── hh_url.py            # генератор ссылок hh.ru
+│   └── run_evals.py         # прогон кейсов через LLM (опционально)
+├── tests/                   # юнит-тесты
+├── SKILL.md                 # сам скилл
+├── INSTALL.md               # подробная установка
+├── README.md / README.en.md
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+└── LICENSE
 ```
 
-## ⚙️ | Параметры поиска
+## ✅ Проверки
 
-| Параметр | Обязательный | Пример |
-|---|---|---|
-| Профессия | ✅ | «бухгалтер» |
-| Город | ✅ | «Казань» |
-| Формат работы | ✅ | офис / удалённо / вахта / смены |
-| Опыт | ⬜ | «3 года» |
-| Зарплата | ⬜ | «от 100к» |
-| График | ⬜ | «2/2» |
+```bash
+python scripts/check_contract.py          # frontmatter, ссылки, согласованность файлов
+python -m unittest discover -s tests -v   # юнит-тесты скриптов
+```
 
-## 🤝 | Вклад
+Поведенческие кейсы лежат в `evals/cases.json`. Их можно прогнать через любой OpenAI-совместимый API:
 
-PR и Issues приветствуются! Особенно интересны:
-- поддержка других стран (Indeed, LinkedIn)
-- интеграция с API hh.ru
-- анализ резюме ↔ совпадение с вакансиями
+```bash
+export OPENAI_API_KEY=...
+python scripts/run_evals.py --run --model gpt-4o-mini
+```
 
-## 📄 | Лицензия
+Без ключа `--list` покажет кейсы для ручной проверки.
 
-MIT — используйте свободно.
+## 🗺️ Roadmap
 
-## 💵 | Поддержать автора
+- [x] Плагин Claude Code и маркетплейс
+- [x] Контрактные тесты и CI
+- [ ] Английская версия скилла и поддержка LinkedIn / Indeed
+- [ ] JSON/CSV-вывод для пайплайнов
+- [ ] Отчёт по рынку зарплат за период
+- [ ] Интеграция с API hh.ru
 
-https://dalink.to/k33_official - RUB без ВПН
+## 🤝 Вклад
+
+PR и issues приветствуются. Перед PR прочитайте [CONTRIBUTING.md](CONTRIBUTING.md) и прогоните `python scripts/check_contract.py`.
+
+Особенно полезны:
+
+- новые источники вакансий (с проверенными URL);
+- улучшение промпта без роста `SKILL.md`;
+- кейсы в `evals/`;
+- переводы.
+
+## 📄 Лицензия
+
+MIT — используйте свободно, см. [LICENSE](LICENSE).
+
+## 💵 Поддержать автора
+
+Если скилл сэкономил время: [dalink.to/k33_official](https://dalink.to/k33_official) (RUB, без VPN).
 
 ---
 
-*Сделано с ❤️ для тех, кто ищет работу.*
-
-
+Сделано с ❤️ для тех, кто ищет работу.

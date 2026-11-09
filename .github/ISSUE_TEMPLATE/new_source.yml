@@ -1,0 +1,35 @@
+name: Новый источник вакансий
+description: Предложить площадку или страну для поддержки
+title: "[source] "
+labels: ["enhancement", "source"]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: Название площадки
+      placeholder: LinkedIn, Indeed, Djinni
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: Пример страницы поиска
+      description: Ссылка на выдачу по запросу, а не на главную
+      placeholder: https://example.com/jobs?q=python&l=berlin
+    validations:
+      required: true
+  - type: textarea
+    id: params
+    attributes:
+      label: Параметры поиска
+      description: Какие параметры поддерживает URL — город, опыт, формат, зарплата
+      placeholder: q, location, remote, experience
+    validations:
+      required: false
+  - type: textarea
+    id: why
+    attributes:
+      label: Зачем это нужно
+      description: Какие профессии или регионы закрывает источник
+    validations:
+      required: false
