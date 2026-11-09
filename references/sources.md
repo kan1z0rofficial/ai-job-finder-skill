@@ -62,6 +62,43 @@ https://hh.ru/search/vacancy?text=...&area=...&experience=...&schedule=...
 - **Формат**: удалёнка, гибрид, офис, вахта, смены. У вахты — длительность и ротация (`60/30`, `30/15`), если указаны.
 - **Дата**: когда опубликована вакансия и обновлялась ли она.
 
+## API hh.ru
+
+Официальный поиск: `https://api.hh.ru/vacancies`.
+
+```text
+GET https://api.hh.ru/vacancies?text=сварщик&area=95&per_page=20&page=0
+User-Agent: ai-job-finder-skill/1.2 (contact)
+```
+
+Параметры совпадают с сайтом: `text`, `area`, `experience`, `schedule`, `employment`, `salary`, `currency`, `only_with_salary`, `order_by`, `search_field`, `per_page` (до 100), `page` (с 0).
+
+Особенности:
+
+- API может требовать токен приложения. Токен передаётся заголовком `Authorization: Bearer <token>`; скрипт `scripts/hh_api.py` берёт его из `--token` или `HH_ACCESS_TOKEN`.
+- Без токена возможен ответ `403 forbidden`. Это не повод обходить защиту: переключитесь на веб-поиск.
+- При `429` API просит подождать; скрипт делает одну повторную попытку с `Retry-After`.
+- `User-Agent` обязателен и должен содержать название приложения и контакт.
+- Официальный API отдаёт только публичные вакансии и не требует авторизации пользователя.
+
+Маппинг ответа в схему `references/output.md`:
+
+| API | Схема |
+|---|---|
+| `id` | `hh-<id>` |
+| `name` | `title` |
+| `employer.name` | `company` |
+| `area.name` | `city` |
+| `salary.from` / `salary.to` | `salary_from` / `salary_to` |
+| `salary.currency` | `currency` |
+| `salary.gross` | `gross` |
+| `experience.id` | `experience` (`noExperience` → `none`, `between1And3` → `1-3`, и т.д.) |
+| `schedule.id` | `work_format` |
+| `alternate_url` | `url` |
+| `published_at` | `published_at` (дата без времени) |
+
+Скрипт: `python scripts/hh_api.py --text "Python" --area 1 --limit 20 --format json`.
+
 ## Rabota.ru
 
 ```text
@@ -79,7 +116,6 @@ https://russia.superjob.ru/vacancy/search/?keywords=сварщик
 Для конкретного города домен может отличаться (`https://www.superjob.ru` и региональные поддомены). Проверяйте, что в выдаче нужный город.
 
 ## Авито Работа
-
 ```text
 https://www.avito.ru/rossiya/rabota?q=сварщик
 ```

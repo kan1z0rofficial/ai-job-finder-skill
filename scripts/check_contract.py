@@ -34,10 +34,12 @@ REQUIRED_FILES = [
     "references/sources.md",
     "references/output.md",
     "scripts/hh_url.py",
+    "scripts/hh_api.py",
     "scripts/format_results.py",
     "scripts/check_contract.py",
     "scripts/run_evals.py",
     "tests/test_hh_url.py",
+    "tests/test_hh_api.py",
     "tests/test_format_results.py",
 ]
 
@@ -141,6 +143,7 @@ def main() -> int:
     check("нет ссылки на README.md как на инструкцию", "README.md репозитория" not in skill)
     check("ссылка на схему вывода", "references/output.md" in skill)
     check("упомянут format_results.py", "format_results.py" in skill)
+    check("упомянут hh_api.py", "hh_api.py" in skill)
 
     print("\nINSTALL.md")
     install = read("INSTALL.md")

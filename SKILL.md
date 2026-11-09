@@ -45,7 +45,11 @@ description: Поиск вакансий по параметрам — проф�
 - `references/output.md` — схема JSON и правила CSV-вывода;
 - `scripts/hh_url.py` — сборка ссылки hh.ru без ручного угадывания параметров, например:
   `python scripts/hh_url.py --text "сварщик" --area "Тюмень" --schedule fly-in-fly-out`;
+- `scripts/hh_api.py` — поиск через официальный API hh.ru, например:
+  `python scripts/hh_api.py --text "сварщик" --area "Тюмень" --limit 10 --format json`;
 - `scripts/format_results.py` — конвертация результатов в CSV, Markdown или JSON.
+
+API hh.ru может требовать токен приложения. Если скрипт вернул 403 — не обходи ограничение, а переключись на веб-поиск.
 
 Если скилл загружен одним файлом (Claude Projects, Custom GPT, вставка в системный промпт) — работай по инструкциям ниже, а ссылки строй через обычный веб-поиск.
 
