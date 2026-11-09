@@ -92,6 +92,18 @@ Codex прочитает инструкции при старте сессии �
 - Если агент поддерживает скиллы — поместите `SKILL.md` в папку скиллов.
 - Если нет — вставьте содержимое `SKILL.md` в начало диалога или в системный промпт.
 
+### 8. Английская версия
+
+Для международного рынка (LinkedIn, Indeed, Glassdoor) используйте `SKILL.en.md`:
+
+```bash
+mkdir -p ~/.claude/skills/ai-job-finder-en
+curl -fsSL https://raw.githubusercontent.com/kan1z0rofficial/ai-job-finder-skill/main/SKILL.en.md \
+  -o ~/.claude/skills/ai-job-finder-en/SKILL.md
+```
+
+Имя папки — `ai-job-finder-en`, файл внутри должен называться `SKILL.md`.
+
 ## Быстрая проверка
 
 Напишите агенту:

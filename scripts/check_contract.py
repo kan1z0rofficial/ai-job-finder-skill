@@ -22,6 +22,7 @@ REQUIRED_FILES = [
     "SKILL.md",
     "README.md",
     "README.en.md",
+    "SKILL.en.md",
     "INSTALL.md",
     "LICENSE",
     "CHANGELOG.md",
@@ -32,6 +33,7 @@ REQUIRED_FILES = [
     ".github/workflows/validate.yml",
     "evals/cases.json",
     "references/sources.md",
+    "references/sources-intl.md",
     "references/output.md",
     "scripts/hh_url.py",
     "scripts/hh_api.py",
@@ -148,6 +150,28 @@ def main() -> int:
     check("упомянут hh_api.py", "hh_api.py" in skill)
     check("упомянут salary_report.py", "salary_report.py" in skill)
 
+    print("\nSKILL.en.md")
+    skill_en = read("SKILL.en.md")
+    meta_en = parse_frontmatter(skill_en)
+    check("frontmatter есть", meta_en is not None)
+    if meta_en:
+        name_en = meta_en.get("name", "")
+        description_en = meta_en.get("description", "")
+        check("name = ai-job-finder-en", name_en == "ai-job-finder-en", name_en)
+        check(
+            "name в kebab-case",
+            bool(re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", name_en)),
+            name_en,
+        )
+        check("description заполнен", len(description_en) >= 40, f"{len(description_en)} символов")
+
+    lowered_en = skill_en.casefold()
+    for rule in ["never invent", "personal data", "refuse", "search date", "do not bypass"]:
+        check(f"правило «{rule}» на месте", rule in lowered_en)
+    check("LinkedIn упомянут", "linkedin" in lowered_en)
+    check("Indeed упомянут", "indeed" in lowered_en)
+    check("ссылка на sources-intl.md", "references/sources-intl.md" in skill_en)
+
     print("\nINSTALL.md")
     install = read("INSTALL.md")
     install_lower = install.casefold()
@@ -164,6 +188,8 @@ def main() -> int:
     check("раздел ограничений", "ограничения" in readme_lower)
     check("описание структуры актуально", "references/sources.md" in readme and "CHANGELOG.md" in readme)
     check("описан JSON/CSV", "references/output.md" in readme and "format_results.py" in readme)
+    check("описана английская версия", "SKILL.en.md" in readme)
+    check("README.en описывает английский скилл", "SKILL.en.md" in read("README.en.md"))
 
     print("\nВнутренние ссылки")
     for relative in MARKDOWN_FILES:

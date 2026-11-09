@@ -2,6 +2,19 @@
 
 Формат: [Keep a Changelog](https://keepachangelog.com/ru/1.1.0/), версии по [SemVer](https://semver.org/lang/ru/).
 
+## [1.4.0] — 2026-11-10
+
+### Добавлено
+
+- `SKILL.en.md` — англоязычный скилл для международного рынка: LinkedIn, Indeed, Glassdoor, карьерные страницы и hh.ru для России/СНГ.
+- `references/sources-intl.md` — параметры URL, ограничения площадок и правила дедупликации.
+- Проверки английского frontmatter и обязательных правил в `check_contract.py`.
+
+### Изменено
+
+- README и README.en: установка английской версии и обновлённая структура.
+- Roadmap закрыт полностью.
+
 ## [1.3.0] — 2026-11-10
 
 ### Добавлено

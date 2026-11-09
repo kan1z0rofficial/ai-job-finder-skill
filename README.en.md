@@ -52,6 +52,28 @@ Invoke-WebRequest -UseBasicParsing `
 
 Other platforms: [INSTALL.md](INSTALL.md) (Russian).
 
+### English skill — LinkedIn and Indeed
+
+The plugin ships the Russian skill. For the English version, install `SKILL.en.md` as `SKILL.md` in its own folder:
+
+```bash
+mkdir -p ~/.claude/skills/ai-job-finder-en && \
+curl -fsSL https://raw.githubusercontent.com/kan1z0rofficial/ai-job-finder-skill/main/SKILL.en.md \
+  -o ~/.claude/skills/ai-job-finder-en/SKILL.md
+```
+
+Windows (PowerShell):
+
+```powershell
+$dir = "$env:USERPROFILE\.claude\skills\ai-job-finder-en"
+New-Item -ItemType Directory -Force $dir | Out-Null
+Invoke-WebRequest -UseBasicParsing `
+  -Uri "https://raw.githubusercontent.com/kan1z0rofficial/ai-job-finder-skill/main/SKILL.en.md" `
+  -OutFile "$dir\SKILL.md"
+```
+
+The English skill searches LinkedIn Jobs, Indeed, company career pages, Glassdoor, and hh.ru for Russia/CIS. URL parameters are in [references/sources-intl.md](references/sources-intl.md).
+
 ## 🚀 Usage
 
 ```text
@@ -60,7 +82,7 @@ Python developer, remote, from 200k
 Accountant in Kazan, office, no experience
 ```
 
-The skill asks for missing details and returns up to 10 vacancies from hh.ru, Rabota.ru, SuperJob, and Avito Rabota.
+The skill asks for missing details and returns up to 10 vacancies. The Russian version uses hh.ru, Rabota.ru, SuperJob, and Avito Rabota; the English version uses LinkedIn Jobs, Indeed, Glassdoor, company career pages, and hh.ru for Russia/CIS.
 
 Need machine-readable output? Ask for JSON or CSV. The schema is in [references/output.md](references/output.md), and `scripts/format_results.py` converts a JSON file to CSV or Markdown.
 
@@ -81,10 +103,11 @@ For a market report, `scripts/salary_report.py` computes the median, percentiles
 ```text
 .claude-plugin/   Claude Code plugin + marketplace
 evals/            behavioural cases
-references/       source URL rules
-scripts/          contract checks, hh.ru URL builder, eval runner
+references/       source URL rules and the JSON/CSV schema
+scripts/          contract checks, hh.ru API/URL, formatting, salary report
 tests/            unit tests
-SKILL.md          the skill itself
+SKILL.md          Russian skill
+SKILL.en.md       English skill (LinkedIn, Indeed)
 INSTALL.md        detailed installation
 ```
 

@@ -9,7 +9,7 @@
     {
       "name": "ai-job-finder-skill",
       "source": "./",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "description": "Поиск вакансий по профессии, городу, опыту и формату работы",
       "license": "MIT",
       "keywords": [
