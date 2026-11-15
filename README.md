@@ -5,7 +5,6 @@
 
 [![Release](https://img.shields.io/github/v/release/kan1z0rofficial/ai-job-finder-skill?style=flat-square&label=release)](https://github.com/kan1z0rofficial/ai-job-finder-skill/releases)
 [![License](https://img.shields.io/github/license/kan1z0rofficial/ai-job-finder-skill?style=flat-square)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/kan1z0rofficial/ai-job-finder-skill?style=flat-square)](https://github.com/kan1z0rofficial/ai-job-finder-skill/stargazers)
 [![Validate](https://github.com/kan1z0rofficial/ai-job-finder-skill/actions/workflows/validate.yml/badge.svg)](https://github.com/kan1z0rofficial/ai-job-finder-skill/actions/workflows/validate.yml)
 
 Универсальный AI-скилл для поиска работы. Один файл `SKILL.md` — без зависимостей, API-ключей и установки пакетов. Работает в Claude Code, Claude Projects, ChatGPT, Codex, OpenClaw, Kimi и любых агентах, которые читают инструкции.
