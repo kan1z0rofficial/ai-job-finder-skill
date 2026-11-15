@@ -1,11 +1,12 @@
 # 🎯 ai-job-finder-skill
 
+[![Русский](https://img.shields.io/badge/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-30363d?style=for-the-badge)](README.md)
+[![English](https://img.shields.io/badge/English-1f6feb?style=for-the-badge)](README.en.md)
+
 [![Release](https://img.shields.io/github/v/release/kan1z0rofficial/ai-job-finder-skill?style=flat-square&label=release)](https://github.com/kan1z0rofficial/ai-job-finder-skill/releases)
 [![License](https://img.shields.io/github/license/kan1z0rofficial/ai-job-finder-skill?style=flat-square)](LICENSE)
 
 An AI-agent skill for job search. One `SKILL.md` file, no dependencies, no API keys. Works with Claude Code, Claude Projects, ChatGPT, Codex, OpenClaw, Kimi, and any agent that reads instructions.
-
-> 🇷🇺 Русская версия: [README.md](README.md)
 
 Ask your agent *"find me welding jobs in Tyumen, fly-in rotation"* and get a table of vacancies with salaries, experience requirements, sources, the median salary, and the search date.
 

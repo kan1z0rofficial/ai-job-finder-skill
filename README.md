@@ -1,5 +1,8 @@
 # 🎯 ai-job-finder-skill
 
+[![Русский](https://img.shields.io/badge/%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9-1f6feb?style=for-the-badge)](README.md)
+[![English](https://img.shields.io/badge/English-30363d?style=for-the-badge)](README.en.md)
+
 [![Release](https://img.shields.io/github/v/release/kan1z0rofficial/ai-job-finder-skill?style=flat-square&label=release)](https://github.com/kan1z0rofficial/ai-job-finder-skill/releases)
 [![License](https://img.shields.io/github/license/kan1z0rofficial/ai-job-finder-skill?style=flat-square)](LICENSE)
 [![Stars](https://img.shields.io/github/stars/kan1z0rofficial/ai-job-finder-skill?style=flat-square)](https://github.com/kan1z0rofficial/ai-job-finder-skill/stargazers)
