@@ -21,6 +21,13 @@ Ask your agent *"find me welding jobs in Tyumen, fly-in rotation"* and get a tab
 - 🔒 Refuses to invent vacancies, auto-apply, or collect personal data
 - 🌐 One file for all popular agents
 
+## 🎬 Demo
+
+![Search result: 10 welding jobs in Tyumen, fly-in rotation](docs/demo.png)
+
+A real run: *"find me welding jobs in Tyumen, fly-in rotation"* → 101 vacancies matched the filter,
+the table shows the top 10, each one verified on its vacancy page. Search date: 2026-11-15.
+
 ## 📦 Install
 
 ### Claude Code — plugin
